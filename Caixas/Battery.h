@@ -1,8 +1,9 @@
 #pragma once
+using namespace std;
 class Battery
 {
 private:
-	char * model; //Modelo
+	string model; //Modelo
 	float price;  //Preço
 	float width;  //Espessura
 	float height; //Altura
@@ -15,7 +16,7 @@ public:
 	Battery(char * m, float p, float wi, float h, float l, float we);
 	~Battery();
 
-	void setModel(char * m);
+	void setModel(string m);
 	void setPrice(float p);
 	void setWidth(float w);
 	void setHeight(float h);
@@ -23,7 +24,7 @@ public:
 	void setWeight(float w);
 	void setVolume(float v);
 
-	char * getModel();
+	string getModel();
 	float getPrice();
 	float getWidth();
 	float getHeight();

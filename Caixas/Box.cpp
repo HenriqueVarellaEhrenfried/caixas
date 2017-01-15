@@ -1,6 +1,5 @@
 #include "stdafx.h"
-#include "Box.h"
-
+using namespace std;
 
 Box::Box()
 {

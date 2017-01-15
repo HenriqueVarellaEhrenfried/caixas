@@ -1,6 +1,5 @@
 #include "stdafx.h"
-#include "Battery.h"
-
+using namespace std;
 
 Battery::Battery()
 {
@@ -21,7 +20,7 @@ Battery::~Battery()
 {
 }
 
-void Battery::setModel(char * m)
+void Battery::setModel(string m)
 {
 	model = m;
 }
@@ -56,7 +55,7 @@ void Battery::setVolume(float v)
 	volume = v;
 }
 
-char * Battery::getModel()
+string Battery::getModel()
 {
 	return model;
 }

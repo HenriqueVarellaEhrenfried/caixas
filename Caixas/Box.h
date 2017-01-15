@@ -1,4 +1,5 @@
 #pragma once
+using namespace std;
 class Box{
 private:
 	int n_battery; //Número de baterias na caixa
