@@ -6,7 +6,7 @@ Battery::Battery()
 {
 }
 
-Battery::Battery(char * m, float p, float wi, float h, float l, float we, float v)
+Battery::Battery(char * m, float p, float wi, float h, float l, float we)
 {
 	setModel(m);
 	setPrice(p);
@@ -14,7 +14,7 @@ Battery::Battery(char * m, float p, float wi, float h, float l, float we, float 
 	setHeight(h);
 	setLength(l);
 	setWeight(we);
-	setVolume(v);
+	setVolume(h*l*wi);
 }
 
 Battery::~Battery()

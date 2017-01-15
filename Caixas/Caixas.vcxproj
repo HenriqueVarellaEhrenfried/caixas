@@ -163,6 +163,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="config_bt.cfg" />
+    <None Include="config_bx.cfg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

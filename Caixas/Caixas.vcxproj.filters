@@ -49,5 +49,8 @@
     <None Include="config_bt.cfg">
       <Filter>Source Files</Filter>
     </None>
+    <None Include="config_bx.cfg">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

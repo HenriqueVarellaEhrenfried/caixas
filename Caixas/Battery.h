@@ -12,7 +12,7 @@ private:
 
 public:
 	Battery();
-	Battery(char * m, float p, float wi, float h, float l, float we, float v);
+	Battery(char * m, float p, float wi, float h, float l, float we);
 	~Battery();
 
 	void setModel(char * m);

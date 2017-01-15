@@ -14,14 +14,12 @@ std::vector<string> readCFG(char * s) {
 	std::vector<string> vec;
 	settings.open(s);
 	if (settings.is_open())	{
-		cout << "Lendo arquivo de configuração" << s << "\n";
 		while (getline(settings, line))		{
 			vec.push_back(line);
 		}
 		settings.close();
 	}
 	else {
-		cout << "Não foi possível ler o arquivo de configuração "<< s << "\n";
 		exit(EXIT_FAILURE);
 	}
 	return vec;
@@ -32,14 +30,8 @@ int main()
 	char holder;
 	std::vector<string> battery_types;
 	std::vector<string> box_types;
-	//battery_types = readCFG(CONFIG_FILE_BT);
-	//box_types = readCFG(CONFIG_FILE_BX);
-	system("dir");
-	for (string n : battery_types) {
-		std::cout << n << '\n';
-	}
-	cout << "\n\n";
-	system("echo %cd%");
+	battery_types = readCFG(CONFIG_FILE_BT);
+	box_types = readCFG(CONFIG_FILE_BX);
 	cin >> holder;
     return 0;
 }
