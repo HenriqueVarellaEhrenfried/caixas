@@ -106,3 +106,16 @@ float Box::getVolume()
 {
 	return volume;
 }
+
+void Box::printBox()
+{
+	cout << n_battery << endl;
+	cout << size << endl;
+	cout << t_weight << endl;
+	cout << t_volume << endl;
+	cout << t_price << endl;
+	cout << width << endl;
+	cout << height << endl;
+	cout << length << endl;
+	cout << volume << endl;
+}

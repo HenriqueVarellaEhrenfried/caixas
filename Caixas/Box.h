@@ -36,5 +36,7 @@ public:
 	float getHeight();
 	float getLength();
 	float getVolume();
+
+	void printBox();
 };
 

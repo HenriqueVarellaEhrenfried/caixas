@@ -49,34 +49,40 @@ vector<string> readCFG(char * s) {
 }
 
 vector<Box> createAvailableBoxes(vector<string> text) {
+	//TODO : FIX BUGS
 	vector<Box> boxes;
 	Box b;
 	string prefix_1 = "<";
 	string prefix_2 = "<\\";
+	//string aux;
 	vector<string> splitted;
+	std::string::size_type sz;
 
 	for (string s : text) {
-		if (s.substr(0, prefix_1.size()) != prefix_1) {
-			splitted = split(s, '=');
+		splitted = split(s, '=');
+		if (s.substr(0, prefix_1.size()) != prefix_1) {			
 			if (splitted[0] == S_TAM) {
-				b.setSize(stoi(splitted[1]));
+				b.setSize(stoi(splitted[1], &sz, 10));
 				continue;
 			}
 			if (splitted[0] == S_LAR) {
-				b.setWidth(stof(splitted[1]));
+				b.setWidth(stof(splitted[1], &sz));
 				continue;
 			}
 			if (splitted[0] == S_ALT) {
-				b.setHeight(stof(splitted[1]));
+				b.setHeight(stof(splitted[1], &sz));
 				continue;
 			}
 			if (splitted[0] == S_COM) {
-				b.setLength(stof(splitted[1]));
+				b.setLength(stof(splitted[1], &sz));
 				continue;
 			}
 		}
 		else {
 			if (s.substr(0, prefix_1.size()) != prefix_2) {
+				cout << "+++++\n";
+				b.printBox();
+				cout << "+++++\n";
 				boxes.push_back(b);
 			}
 			else {
@@ -100,6 +106,17 @@ int main()
 	battery_types = readCFG(CONFIG_FILE_BT);
 	box_types = readCFG(CONFIG_FILE_BX);
 
+	boxes_available = createAvailableBoxes(box_types);
+
+	int i = 0;
+	for (Box b : boxes_available) {
+		cout << "-------- [" << i << "] --------";
+		b.printBox();
+		i++;
+	}
+
+
+	cout << "Fim do programa!\n";
 	cin >> holder;
 
 	return 0;
