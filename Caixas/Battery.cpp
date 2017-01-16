@@ -5,7 +5,7 @@ Battery::Battery()
 {
 }
 
-Battery::Battery(char * m, float p, float wi, float h, float l, float we)
+Battery::Battery(string m, float p, float wi, float h, float l, float we) 
 {
 	setModel(m);
 	setPrice(p);
@@ -88,4 +88,17 @@ float Battery::getWeight()
 float Battery::getVolume()
 {
 	return volume;
+}
+
+void Battery::printBatteries()
+{
+	cout << "***********\n";
+	cout << "model >>> " << model << endl;
+	cout << "price >>> " << price << endl;
+	cout << "width >>> " << width << endl;
+	cout << "height >>> " << height << endl;
+	cout << "length >>> " << length << endl;
+	cout << "weight >>> " << weight << endl;
+	cout << "volume >>> " << volume << endl;
+	cout << "***********\n";
 }

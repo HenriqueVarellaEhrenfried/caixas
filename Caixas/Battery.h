@@ -13,7 +13,7 @@ private:
 
 public:
 	Battery();
-	Battery(char * m, float p, float wi, float h, float l, float we);
+	Battery(string m, float p, float wi, float h, float l, float we);//Model, Price, Width, Height, Length, Weigth
 	~Battery();
 
 	void setModel(string m);
@@ -31,6 +31,8 @@ public:
 	float getLength();
 	float getWeight();
 	float getVolume();
+
+	void printBatteries();
 
 };
 

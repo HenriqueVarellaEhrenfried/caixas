@@ -18,4 +18,18 @@
 #include "Box.h"
 #include "Battery.h"
 
+typedef struct box {
+	int size; //Referencia do tamanho da caixa
+	float width;  //Espessura
+	float height; //Altura
+	float length; //Comprimento
+};
+typedef struct battery {
+	string model; //Modelo
+	float price;  //Preço
+	float width;  //Espessura
+	float height; //Altura
+	float length; //Comprimento
+	float weight; //Peso
+};
 // TODO: reference additional headers your program requires here

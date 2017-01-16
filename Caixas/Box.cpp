@@ -10,6 +10,11 @@ Box::Box(float w, float l, float h, int s)
 	setHeight(h);
 	setLength(l);
 	setWidth(w);
+	setSize(s);
+	setTPrice(0.0);
+	setTvolume(0.0);
+	setTWeight(0.0);
+	setNBattery(0);
 	setVolume(h*l*w);
 }
 
@@ -109,13 +114,15 @@ float Box::getVolume()
 
 void Box::printBox()
 {
-	cout << n_battery << endl;
-	cout << size << endl;
-	cout << t_weight << endl;
-	cout << t_volume << endl;
-	cout << t_price << endl;
-	cout << width << endl;
-	cout << height << endl;
-	cout << length << endl;
-	cout << volume << endl;
+	cout << "***********\n";
+	cout << "n_battery >> " << n_battery << endl;
+	cout << "size >> " << size << endl;
+	cout << "t_weight >> " << t_weight << endl;
+	cout << "t_volume >> " << t_volume << endl;
+	cout << "t_price >> " << t_price << endl;
+	cout << "width >> " << width << endl;
+	cout << "height >> " << height << endl;
+	cout << "length >> " << length << endl;
+	cout << "volume >> " << volume << endl;
+	cout << "***********\n";
 }

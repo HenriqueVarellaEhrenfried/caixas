@@ -11,6 +11,9 @@ const string S_TAM = "tamanho";
 const string S_LAR = "largura";
 const string S_ALT = "altura";
 const string S_COM = "comprimento";
+const string S_PES = "peso";
+const string S_MOD = "modelo";
+const string S_PRE = "preco";
 
 vector<string> split(string s, char c) {
 	vector<string> splitted;
@@ -49,41 +52,41 @@ vector<string> readCFG(char * s) {
 }
 
 vector<Box> createAvailableBoxes(vector<string> text) {
-	//TODO : FIX BUGS
 	vector<Box> boxes;
-	Box b;
+	box b;
 	string prefix_1 = "<";
-	string prefix_2 = "<\\";
-	//string aux;
+	string prefix_2 = "</";
 	vector<string> splitted;
 	std::string::size_type sz;
+	b.height = 0;
+	b.length = 0;
+	b.size = 0;
+	b.width = 0;
 
 	for (string s : text) {
 		splitted = split(s, '=');
 		if (s.substr(0, prefix_1.size()) != prefix_1) {			
 			if (splitted[0] == S_TAM) {
-				b.setSize(stoi(splitted[1], &sz, 10));
+				b.size = (stoi(splitted[1], &sz, 0));
 				continue;
 			}
 			if (splitted[0] == S_LAR) {
-				b.setWidth(stof(splitted[1], &sz));
+				b.width = (stof(splitted[1], &sz));
 				continue;
 			}
 			if (splitted[0] == S_ALT) {
-				b.setHeight(stof(splitted[1], &sz));
+				b.height = (stof(splitted[1], &sz));
 				continue;
 			}
 			if (splitted[0] == S_COM) {
-				b.setLength(stof(splitted[1], &sz));
+				b.length = (stof(splitted[1], &sz));
 				continue;
 			}
 		}
 		else {
-			if (s.substr(0, prefix_1.size()) != prefix_2) {
-				cout << "+++++\n";
-				b.printBox();
-				cout << "+++++\n";
-				boxes.push_back(b);
+			if (s.substr(0, prefix_2.size()) == prefix_2) {
+				Box  bx = Box(b.width, b.length, b.height, b.size);
+				boxes.push_back(bx);
 			}
 			else {
 				continue;
@@ -91,6 +94,61 @@ vector<Box> createAvailableBoxes(vector<string> text) {
 		}
 	}
 	return boxes;
+}
+
+vector<Battery> createAvailableBatteries(vector<string> text) {
+	vector<Battery> batteries;
+	battery b;
+	string prefix_1 = "<";
+	string prefix_2 = "</";
+	vector<string> splitted;
+	std::string::size_type sz;
+	b.height = 0;
+	b.length = 0;
+	b.weight = 0.0;
+	b.width = 0;
+	b.price = 0.0;
+	b.model = "MODELO";
+
+	for (string s : text) {
+		splitted = split(s, '=');
+		if (s.substr(0, prefix_1.size()) != prefix_1) {
+			if (splitted[0] == S_MOD) {
+				b.model = splitted[1];
+				continue;
+			}
+			if (splitted[0] == S_PRE) {
+				b.price = (stof(splitted[1], &sz));
+				continue;
+			}
+			if (splitted[0] == S_LAR) {
+				b.width = (stof(splitted[1], &sz));
+				continue;
+			}					
+			if (splitted[0] == S_ALT) {
+				b.height = (stof(splitted[1], &sz));
+				continue;
+			}
+			if (splitted[0] == S_COM) {
+				b.length = (stof(splitted[1], &sz));
+				continue;
+			}
+			if (splitted[0] == S_PES) {
+				b.weight = (stof(splitted[1], &sz));
+				continue;
+			}
+		}
+		else {
+			if (s.substr(0, prefix_2.size()) == prefix_2) {
+				Battery bt = Battery(b.model, b.price, b.width, b.height, b.length, b.weight);
+				batteries.push_back(bt);
+			}
+			else {
+				continue;
+			}
+		}
+	}
+	return batteries;
 }
 
 int main()
@@ -107,14 +165,7 @@ int main()
 	box_types = readCFG(CONFIG_FILE_BX);
 
 	boxes_available = createAvailableBoxes(box_types);
-
-	int i = 0;
-	for (Box b : boxes_available) {
-		cout << "-------- [" << i << "] --------";
-		b.printBox();
-		i++;
-	}
-
+	batteries_available = createAvailableBatteries(battery_types);
 
 	cout << "Fim do programa!\n";
 	cin >> holder;
