@@ -16,6 +16,7 @@ Box::Box(float w, float l, float h, int s)
 	setTWeight(0.0);
 	setNBattery(0);
 	setVolume(h*l*w);
+	setSurface(l*w);
 }
 
 Box::~Box()
@@ -67,6 +68,11 @@ void Box::setVolume(float v)
 	volume = v;
 }
 
+void Box::setSurface(float s)
+{
+	surface = s;
+}
+
 int Box::getNBattery()
 {
 	return n_battery;
@@ -112,6 +118,11 @@ float Box::getVolume()
 	return volume;
 }
 
+float Box::getSurface()
+{
+	return surface;
+}
+
 void Box::printBox()
 {
 	cout << "***********\n";
@@ -124,5 +135,6 @@ void Box::printBox()
 	cout << "height >> " << height << endl;
 	cout << "length >> " << length << endl;
 	cout << "volume >> " << volume << endl;
+	cout << "surface >> " << surface << endl;
 	cout << "***********\n";
 }

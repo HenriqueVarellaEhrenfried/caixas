@@ -10,6 +10,7 @@ private:
 	float length; //Comprimento
 	float weight; //Peso
 	float volume; //Volume
+	float surface; //Área
 
 public:
 	Battery();
@@ -23,6 +24,7 @@ public:
 	void setLength(float l);
 	void setWeight(float w);
 	void setVolume(float v);
+	void setSurface(float s);
 
 	string getModel();
 	float getPrice();
@@ -31,8 +33,9 @@ public:
 	float getLength();
 	float getWeight();
 	float getVolume();
+	float getSurface();
 
 	void printBatteries();
-
+	
 };
 

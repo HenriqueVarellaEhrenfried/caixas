@@ -14,6 +14,7 @@ Battery::Battery(string m, float p, float wi, float h, float l, float we)
 	setLength(l);
 	setWeight(we);
 	setVolume(h*l*wi);
+	setSurface(l*wi);
 }
 
 Battery::~Battery()
@@ -55,6 +56,11 @@ void Battery::setVolume(float v)
 	volume = v;
 }
 
+void Battery::setSurface(float s)
+{
+	surface = s;
+}
+
 string Battery::getModel()
 {
 	return model;
@@ -90,6 +96,11 @@ float Battery::getVolume()
 	return volume;
 }
 
+float Battery::getSurface()
+{
+	return surface;
+}
+
 void Battery::printBatteries()
 {
 	cout << "***********\n";
@@ -100,5 +111,6 @@ void Battery::printBatteries()
 	cout << "length >>> " << length << endl;
 	cout << "weight >>> " << weight << endl;
 	cout << "volume >>> " << volume << endl;
+	cout << "surface >>> " << surface << endl;
 	cout << "***********\n";
 }

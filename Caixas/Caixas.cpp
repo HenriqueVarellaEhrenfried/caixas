@@ -161,11 +161,15 @@ int main()
 	vector<string> battery_types;
 	vector<string> box_types;
 
+	cout << "Lendo arquivos de configuração" << endl;
 	battery_types = readCFG(CONFIG_FILE_BT);
 	box_types = readCFG(CONFIG_FILE_BX);
+	cout << "Arquivos de configuração lidos com sucesso" << endl;
 
 	boxes_available = createAvailableBoxes(box_types);
 	batteries_available = createAvailableBatteries(battery_types);
+
+
 
 	cout << "Fim do programa!\n";
 	cin >> holder;

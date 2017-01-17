@@ -11,6 +11,7 @@ private:
 	float height; //Altura
 	float length; //Comprimento
 	float volume; //Volume
+	float surface; //Área
 	
 public:
 	Box();
@@ -26,6 +27,7 @@ public:
 	void setHeight(float h);
 	void setLength(float l);
 	void setVolume(float v);
+	void setSurface(float s);
 
 	int getNBattery();
 	int getSize();
@@ -36,6 +38,7 @@ public:
 	float getHeight();
 	float getLength();
 	float getVolume();
+	float getSurface();
 
 	void printBox();
 };
